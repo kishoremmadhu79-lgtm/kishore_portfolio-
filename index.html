@@ -2,33 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tab-section { display: none; }
+    .tab-section.active { display: block; }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <header>
-      <h1>Hi, I'm Kishore</h1>
-      <p>Aspiring Machine Learning Developer</p>
-    </header>
+<body class="bg-white text-gray-800">
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I am passionate about AI and ML, learning new technologies, and building real-world projects.</p>
-    </section>
+  <!-- Navbar -->
+  <nav class="bg-black text-white flex justify-between items-center px-8 py-4">
+    <div class="text-xl font-bold">Your Name</div>
+    <ul class="flex space-x-6">
+      <li><button onclick="showTab('home')">Home</button></li>
+      <li><button onclick="showTab('case-studies')">Case Studies</button></li>
+      <li><button onclick="showTab('recent-work')">Recent Work</button></li>
+      <li><a href="https://your-google-drive-link.com" target="_blank" class="text-green-500">Resume</a></li>
+      <li><button onclick="showTab('contact')">Contact</button></li>
+    </ul>
+  </nav>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project-card">Project 1</div>
-      <div class="project-card">Project 2</div>
-      <div class="project-card">Project 3</div>
-    </section>
+  <!-- HOME -->
+  <section id="home" class="tab-section active bg-black text-white text-center py-20 px-4">
+    <img src="https://via.placeholder.com/150" class="mx-auto rounded-full mb-6" alt="Your photo">
+    <h1 class="text-4xl font-bold mb-4">Your Name Here</h1>
+    <p class="mb-6">Short headline or intro about what you do and offer.</p>
+    <button onclick="showTab('contact')" class="bg-green-500 px-6 py-3 rounded font-semibold text-black">Let's get started</button>
+  </section>
 
-    <section id="resume">
-      <h2>Resume</h2>
-      <a href="resume/my_resume.pdf" class="btn">Download Resume</a>
-    </section>
-  </div>
+  <!-- CASE STUDIES -->
+  <section id="case-studies" class="tab-section py-16 px-4 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Case Studies</h2>
+    <div class="grid md:grid-cols-2 gap-10">
+      <div>
+        <img src="https://via.placeholder.com/400x250" class="mb-4 rounded" alt="">
+        <h3 class="text-xl font-bold">Project 1 Name</h3>
+        <p class="mb-4">Description of project 1.</p>
+        <a href="#" class="text-orange-500 underline">View case study →</a>
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/400x250" class="mb-4 rounded" alt="">
+        <h3 class="text-xl font-bold">Project 2 Name</h3>
+        <p class="mb-4">Description of project 2.</p>
+        <a href="#" class="text-blue-500 underline">View case study →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT WORK -->
+  <section id="recent-work" class="tab-section py-16 px-4 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Recent Work</h2>
+    <div class="grid md:grid-cols-2 gap-10">
+      <div>
+        <img src="https://via.placeholder.com/400x250" class="rounded mb-4" alt="">
+        <h3 class="text-xl font-bold">Work 1</h3>
+        <p class="mb-4">Small description about this work.</p>
+        <a href="#" class="text-green-500 underline">View more →</a>
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/400x250" class="rounded mb-4" alt="">
+        <h3 class="text-xl font-bold">Work 2</h3>
+        <p class="mb-4">Small description about this work.</p>
+        <a href="#" class="text-green-500 underline">View more →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section id="contact" class="tab-section bg-black text-white py-20 px-4 text-center">
+    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+    <p class="mb-6">Have a project or just want to say hi? Fill in the form below!</p>
+    <!-- Use Formspree: https://formspree.io -->
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="max-w-xl mx-auto">
+      <input type="text" name="name" placeholder="Name" required class="w-full mb-4 px-4 py-2 rounded text-black" />
+      <input type="email" name="_replyto" placeholder="Email" required class="w-full mb-4 px-4 py-2 rounded text-black" />
+      <textarea name="message" placeholder="Message" required class="w-full mb-4 px-4 py-2 rounded text-black"></textarea>
+      <button type="submit" class="bg-green-500 text-black px-6 py-3 rounded font-semibold">Submit</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-6 text-center">
+    <p>Made with ❤️</p>
+  </footer>
+
+  <!-- JavaScript to switch tabs -->
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab-section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
 </body>
 </html>
